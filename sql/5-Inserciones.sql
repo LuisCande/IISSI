@@ -1,0 +1,60 @@
+DROP SEQUENCE sec_usuario;
+DROP SEQUENCE sec_valoracion;
+DROP SEQUENCE sec_cita;
+DROP SEQUENCE sec_pedido;
+DROP SEQUENCE sec_lineaPedido;
+DROP SEQUENCE sec_producto;
+DROP SEQUENCE sec_proveedor;
+DROP SEQUENCE sec_equipamiento;
+
+CREATE SEQUENCE sec_usuario INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE sec_valoracion INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE sec_cita INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE sec_pedido INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE sec_lineaPedido INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE sec_producto INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE sec_proveedor INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE sec_equipamiento INCREMENT BY 1 START WITH 1;
+DELETE FROM LINEAPEDIDO;
+DELETE FROM PEDIDO;
+DELETE FROM PROVEEDOR;
+DELETE FROM PRODUCTO;
+DELETE FROM CITA;
+DELETE FROM VALORACION;
+DELETE FROM USUARIO;
+
+
+BEGIN
+
+crearCliente('antonioPerez@hotmail.com','645301579','ASDasd123','Antonio','Perez','Garcia','45156672J','Calle Palos N7');
+crearCliente('luis_rod_vi@gmail.com','635301579','ASDasd123','Luis','Rodriguez','Vidosa','12957295F','Paseo de la Ría N23');
+crearCliente('Javiroma@hotmail.com','655501579','ASDasd123','Javier','Rodriguez','Marquez','93729571N','Calle Tarfia N18');
+crearGerente('er5lui@gmail.com','625121315','ASDasd123');
+crearProveedor('1234566','Moto Mash Barcelona','info@viascooter.es','931650112','Avda Vallcarca 69 Barcelona','motomashbarcelona.es');
+crearProveedor('1234567','Eduardo Castro Motos','EduCastro@gmail.com','954987217','Calle Tarfia 1 Sevilla','www.EduardoCastro.com');
+crearProveedor('1234568','TodoMoto','TodoMoto@terra.com','954693073','Calle Torneo 53 Sevilla','www.TodoMoto.es');
+crearProveedor('1234569','Motos Soria','SoriaMotos@hotmail.com','915279180','Ronda de Atocha 101 Madrid','www.motos.soria.com');
+crearProveedor('2345678','Moto Recambio','consultas@moto-recambio.com','955332111','Avenida del Prat 45 Barcelona','www.moto-recambio.com');
+crearProveedor('1234519','Motos Sorra','Soriaotos@hotmail.com','915270180','Ronda de Atocha 101 Madrid','www.moos.soria.com');
+crearMotor('1234560','Cortador Eléctrico FS31','Cortabordes eléctrico y muy manejable','Stihl','59,0',null,'0,21',6,2,1,'Eléctrico','Seminuevo',2018,'Maquinaria',1);
+crearMotor('1234561','BMW R 1200 GS','Equipada con: NB5 U - Blanco Luminoso 0190 Modos de marcha 0230 Paquete Confort 0350 Colector escape cromado.','BMW','17495,00',null,'0,21',3,2,1,'1170 cc','Seminuevo',2018,'Moto',2);
+crearMotor('1234563','HONDA CBR 1000RR','Filtro de Aceite Filtro de Aire y Neumático Trasero Nuevo Cúpula Puig Tapa de Colín, Soporte de Matrícula Corto, Bomba de Freno Brembo, Intermitentes Cortos, Latiguillos de Freno Delanteros, 1 Año de Garantía, Financiación a Medida Sin Entrada','Honda','6299,0',null,'0,21',3,2,2,'988 cc','Nuevo',2006,'Moto',7);
+crearMotor('1234564','TRIUMPH Scrambler','ABS desconectable, Control de Tracción desconectable, Acelerador electrónico, Embrague asistido.','TRIUMPH','10430,00',null,'0,21',3,2,2,'865 cc','Seminuevo',2018,'Moto',2);
+crearMotor('1234565','DUCATI Monster 821 Strip','Concesionario oficial Honda, Kawasaki y Triumph,','DUCATI','9999,99',null,'0,21',3,2,3,'821 cc','Nuevo',2017,'Moto',5);
+NUEVOCREAREQUIPAMIENTO('1234566','Casco Corsa','Casco integral de buena calidad, edición especial Italia','AGV','299,0','0,35','0,21',4,2,'1234566','Blanco','Carbono','S/M');
+NUEVOCREAREQUIPAMIENTO('1234555','Guantes Alpine','Piel de canguro con protecciones en nudillos y extremos de los dedos','Alpinestars','59,0','0,35','0,21',8,2,'1234568','Negro','Canguro','Única');
+NUEVOCREAREQUIPAMIENTO('1534560','Botas Hebo EVO BLACK','Nueva evolución de las botas de Trial Hebo Eko. Fabricadas en piel recubierta de PU de 2.4/2.6 mm de grosor de máxima calidad.','Hebo','89,0','0,10','0,21',6,1,'1234568','Negro','Plástico','40/44/45/48');
+NUEVOCREAREQUIPAMIENTO('1234356','Chaqueta Oxford Montreal','Chaqueta touring-adventure confeccionada en poliéster con refuerzos en zonas críticas. Dispone de membrana.','Oxford','60,0',null,'0,21',6,2,'1234569','Amarillo/Negro','Poliéster','M/L/XL');
+NUEVOCREAREQUIPAMIENTO('1664356','Mono Track Wind Replica',' Mono profesional confeccionado en piel bovina de alta resistencia con paneles en piel microperforada para una buena ventilación y paneles elásticos para mayor flexibilidad','Spidi','300,0','0,50','0,21',7,2,'1234569','Rojo','Piel bovina','50/51/52');
+NUEVOCREARRECAMBIO('1664756','Rotor PIAGGIO Scooter 50','Rotor universal para scooter de 49cc 2t compatible con la mayoría de modelos de Aerox','PIAGGIO','39,0',null,'0,21',5,2,'2345678');
+NUEVOCREARRECAMBIO('8664756','Cristal Intermitente','Cristal Intermitente (Todos los lados) ambar para Yamaha MT-06','Yamaha','2,13',null,'0,21',4,2,'2345678');
+NUEVOCREARRECAMBIO('8264756','Filtro de gasolina','Filtro de gasolina pequeño de tamaño: Largo: 6 cm Ancho: 2 cm','Solid','1,99',null,'0,21',8,1,'2345678');
+NUEVOCREARRECAMBIO('8264733','Bujía NGK','Bujía NGK DPR8EA-9','NGK','5,05',null,'0,21',7,2,'2345678');
+NUEVOCREARRECAMBIO('1688756','Filtro de aire','Filtro de aire BMC Carbono Ducati CRF482/08KIT','BMC','748,00',null,'0,21',2,1,'2345678');
+crearCitaEmail('10/05/2018','Probar Yamaha YZ','Hola, me gustaría probar la Yamaha YZ para finalizar la compra','Tienda','Javiroma@hotmail.com');
+crearCitaEmail('05/11/2018','Revisión Ducati','Buenas tardes, me gustaría poder hacerle la revisión a mi moto y necesito una fecha','Taller','antonioPerez@hotmail.com');
+crearCitaEmail('17/09/2018','Devolución Chaqueta','Buenas noches, quiero devolver la chaqueta Oxford que teneis en la tienda porque me está estrecha','Tienda','luis_rod_vi@gmail.com');
+crearValoracionEmail('Excelente servicio','Servicio de 10, muy amables y profesionales.','Javiroma@hotmail.com');
+crearValoracionEmail('Gran catálogo','Poseen un enorme catálogo de productos.','antonioPerez@hotmail.com');
+crearValoracionEmail('Pedido retrasado','Me llegó una semana tarde el pedido que realicé.','luis_rod_vi@gmail.com');
+END;
